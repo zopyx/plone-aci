@@ -7,7 +7,7 @@ acbuild run -- apk add python git  python-dev py-pip
 acbuild set-exec /bin/hello
 acbuild run pip install virtualenv
 acbuild run virtualenv plone
-acbuild set-working-directory/ plone
+acbuild set-working-directory /plone
 acbuild run bin/pip install zc.buildout
 acbuild run bin/zc.buildout bootstrap
 acbuild copy buildout.cfg .
