@@ -1,6 +1,6 @@
 rm plone.aci  
 acbuild begin
-acbuild set-name example.com/hello
+acbuild set-name zopyx/plone
 acbuild dependency add quay.io/coreos/alpine-sh
 acbuild run -- apk update
 acbuild run -- apk add python git  python-dev py-pip
