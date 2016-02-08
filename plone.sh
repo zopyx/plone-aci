@@ -4,7 +4,6 @@ acbuild set-name example.com/hello
 acbuild dependency add quay.io/coreos/alpine-sh
 acbuild run -- apk update
 acbuild run -- apk add python git  python-dev py-pip
-acbuild set-exec /bin/hello
 acbuild run pip install virtualenv
 acbuild run virtualenv plone
 acbuild set-working-directory /plone
