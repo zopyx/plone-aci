@@ -1,13 +1,16 @@
-acbuild --debug=true  begin
-acbuild --debug=true  set-name zopyx/plone
-acbuild --debug=true  dependency add quay.io/coreos/alpine-sh
-acbuild --debug=true  run ls /bin
-acbuild --debug=true  run -- apk update
-acbuild --debug=true  run -- apk add python git  python-dev py-pip
-acbuild --debug=true  run pip install virtualenv
-acbuild --debug=true  run virtualenv plone
-acbuild --debug=true  copy buildout.cfg /plone/buildout.cfg
-acbuild --debug=true  copy build.sh /plone/build.sh
-acbuild --debug=true  run /bin/bash /plone/build.sh 
-acbuild --debug=true  write --overwrite=true plone.aci 
-acbuild --debug=true  end
+#!/bin/bash
+BUILD='acbuild --debug=true '
+
+$BUILD  begin
+$BUILD  set-name zopyx/plone
+$BUILD  dependency add quay.io/coreos/alpine-sh
+$BUILD  run -- apk update
+$BUILD  run -- apk add python git  python-dev py-pip bash 
+$BUILD  run ls /bin
+$BUILD  run pip install virtualenv
+$BUILD  run virtualenv plone
+$BUILD  copy buildout.cfg /plone/buildout.cfg
+$BUILD  copy build.sh /plone/build.sh
+$BUILD  run /bin/bash /plone/build.sh 
+$BUILD  write --overwrite=true plone.aci 
+$BUILD  end
